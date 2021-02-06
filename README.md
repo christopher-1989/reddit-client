@@ -40,7 +40,7 @@ For this project, you will build an application for Reddit using everything youâ
 
 * Get 90+ scores on Lighthouse
 
-- We understand you cannot control how media assets like videos and images are sent to the client. It is okay to have a score below 90 for Performance if they are related to the media from Reddit. OPTIONAL: Get a custom domain name and use it for your application
+   *We understand you cannot control how media assets like videos and images are sent to the client. It is okay to have a score below 90 for Performance if they are related to the media from Reddit. OPTIONAL: Get a custom domain name and use it for your application*
 
 * OPTIONAL: Set up a CI/CD workflow to automatically deploy your application when the master branch in the repository changes
 
