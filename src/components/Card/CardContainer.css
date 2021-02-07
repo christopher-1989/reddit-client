@@ -1,0 +1,5 @@
+.card-container {
+    box-sizing: border-box;
+    flex: auto;
+    border: 2px;
+}
