@@ -1,13 +1,8 @@
-const initialState = {
-    menuClicked: false
-  };
-  
-  export const menuClickReducer = (state = initialState, action) => {
+
+  export const menuClickedReducer = (state = false, action) => {
     switch (action.type) {
       case "CLICK":
-        return {
-          menuClicked: action.payload
-        };
+        return action.payload;
       default:
         return state;
     }

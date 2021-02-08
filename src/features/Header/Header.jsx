@@ -1,23 +1,22 @@
 import "./Header.css";
-import { useState } from 'react';
 import { MobileMenu } from "./MobileMenu";
 import { BrowserMenu } from "./BrowserMenu";
+import { useSelector, useDispatch } from 'react-redux';
+import { menuClick } from '../../store/actions/actions';
 
 export const Header = () => {
-    const [click, setClick] = useState(false);
-    const closeMobileMenu = () => setClick(false);
-
-    const handleClick = () => setClick(!click);
-
     const width = window.screen.width;
+
+    const clicked = useSelector(state => state.menuClicked)
+    const dispatch = useDispatch();
 
     return (
         <div className="header-container">
             <h1 className="title">myReddit<span className="browser" >    <i className='fab fa-reddit' /></span></h1>
-            <div className="menu-icon" onClick={handleClick}>
-                <i className={click ? 'fas fa-times' : "fas fa-bars"} />
+            <div className="menu-icon" onClick={() => dispatch(menuClick(clicked))}>
+                <i className={clicked ? 'fas fa-times' : "fas fa-bars"} />
             </div>
-            <MobileMenu className="mobileMenu" click={click} onClick={closeMobileMenu}/>
+            <MobileMenu className="mobileMenu" click={clicked} onClick={() => dispatch(menuClick(clicked))}/>
             <BrowserMenu className="browserMenu" />
         </div>
     )

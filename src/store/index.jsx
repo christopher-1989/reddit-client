@@ -1,9 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import { menuClickReducer } from './reducers/reducers';
+import { menuClickedReducer } from './reducers/reducers';
 
+const allReducers = combineReducers({
+  menuClicked: menuClickedReducer
+})
 
 export const store = createStore(
-    combineReducers({
-      menuClickReducer
-    })
+    allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
   );
