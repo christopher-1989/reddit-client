@@ -1,6 +1,5 @@
 import "./Header.css";
 import { MobileMenu } from "./MobileMenu";
-import { BrowserMenu } from "./BrowserMenu";
 import { useSelector, useDispatch } from 'react-redux';
 import { menuClick } from '../../store/actions/actions';
 
@@ -17,7 +16,7 @@ export const Header = () => {
                 <i className={clicked ? 'fas fa-times' : "fas fa-bars"} />
             </div>
             <MobileMenu className="mobileMenu" click={clicked} onClick={() => dispatch(menuClick(clicked))}/>
-            <BrowserMenu className="browserMenu" />
+            
         </div>
     )
 }

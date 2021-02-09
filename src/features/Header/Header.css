@@ -4,8 +4,7 @@
     margin-left: 20px;
 }
 
-.browser,
-.browserMenu {
+.browser {
     display: none;
 }
 
