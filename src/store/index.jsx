@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { menuClickedReducer } from './reducers/reducers';
 import ReduxThunk from 'redux-thunk';
 
-const allReducers = combineReducers({
+export const allReducers = combineReducers({
   menuClicked: menuClickedReducer
 })
 

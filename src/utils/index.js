@@ -1,16 +1,19 @@
-// const setUp = (props={}) => {
-//     const component = shallow(<Header {... props} />);
-//     return component;
-// };
+import checkPropTypes from 'check-prop-types';
+import { applyMiddleware, createStore } from 'redux';
+import { allReducers } from './../store/index';
+import { middlewares } from './../store/index';
 
-// //above setup and in Testing file. Import below findTest from this file.
+export const findByTestAtrr = (component, attr) => {
+    const wrapper = component.find(`[data-test='${attr}']`);
+    return wrapper;
+};
 
-// const findByTestAtrr = (component, attr) => {
-//     const wrapper = component.find(`[data-test='${attr}']`);
-//     return wrapper;
-// };
+export const checkProps = (component, expectedProps) => {
+    const propsErr = checkPropTypes(component.propTypes, expectedProps, 'props', component.name);
+    return propsErr;
+};
 
-// it('should render without errors', () => {
-//     const component = findByTestAtrr(wrapper, 'SomeAttr');
-//     expect(component.length).toBe(1);
-// })
+export const testStore = (initialState) => {
+    const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
+    return createStoreWithMiddleware(rootReducer, initialState);
+};

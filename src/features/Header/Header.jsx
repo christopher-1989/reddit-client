@@ -15,7 +15,7 @@ export const Header = () => {
             <div className="menu-icon" onClick={() => dispatch(menuClick(clicked))}>
                 <i className={clicked ? 'fas fa-times' : "fas fa-bars"} />
             </div>
-            <MobileMenu className="mobileMenu" click={clicked} onClick={() => dispatch(menuClick(clicked))}/>
+            <MobileMenu data-test="mobileMenu" className="mobileMenu" click={clicked} onClick={() => dispatch(menuClick(clicked))}/>
             
         </div>
     )

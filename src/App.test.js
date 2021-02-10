@@ -45,10 +45,10 @@ describe('Redux mocked store', () => {
       expect(app).toBeDefined();
     })
     test("title in the header component reads 'myReddit'", () => {
-      // render(<Provider />);
+      const wrapper = shallow(<Header />);
       // const titleElement = screen.getByText(/myReddit/i);
       // expect(titleElement).toBeInTheDocument();
-      expect(component).find('myReddit');
+      expect(wrapper).find('myReddit');
     })
     test("header initialises to closed. Tested by checking whether menu icon is bars or times", () => {
       // const wrapper = shallow(<Header />);
