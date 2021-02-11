@@ -1,3 +1,4 @@
 export const types = {
-    CLICK: 'CLICK'
+    CLICK: 'CLICK',
+    GET_POSTS: 'getPosts'
 }

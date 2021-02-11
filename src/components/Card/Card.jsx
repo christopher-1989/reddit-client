@@ -5,7 +5,9 @@ const Card = (props) => {
 
     const { title, post } = props;
 
-
+    if(!title) {
+        return null;
+    }
 
     return (
         <div data-test="cardComponent">

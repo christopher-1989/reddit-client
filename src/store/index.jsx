@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { menuClickedReducer } from './reducers/reducers';
+import { menuClickedReducer, getPostsReducer } from './reducers/reducers';
 import ReduxThunk from 'redux-thunk';
 
 export const allReducers = combineReducers({
-  menuClicked: menuClickedReducer
+  menuClicked: menuClickedReducer,
+  getPosts: getPostsReducer
 })
 
 export const middlewares = [ReduxThunk];

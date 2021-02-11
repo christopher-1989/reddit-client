@@ -42,4 +42,20 @@ describe('Card compontent', () => {
             expect(post.length).toBe(1);
         });
     });
+
+    describe('Card component does NOT render', () => {
+
+        let wrapper;
+        beforeEach(() => {
+            const props ={
+                post: 'some text'
+            };
+            wrapper = shallow(<Card {...props} />);
+        });
+
+        it('Should NOT render', () => {
+            const component = findByTestAtrr(wrapper, 'cardComponent');
+            expect(component.length).toBe(0);
+        });
+    });
 });
