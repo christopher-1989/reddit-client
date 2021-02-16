@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { menuClick } from '../../store/actions/actions';
 
 export const Header = () => {
-    const width = window.screen.width;
+    // const width = window.screen.width;
 
     const clicked = useSelector(state => state.menuClicked)
     const dispatch = useDispatch();
 
     return (
-        <div className="header-container">
+        <div data-test="header-container" className="header-container">
             <h1 className="title">myReddit<span className="browser" >    <i className='fab fa-reddit' /></span></h1>
             <div className="menu-icon" onClick={() => dispatch(menuClick(clicked))}>
                 <i className={clicked ? 'fas fa-times' : "fas fa-bars"} />

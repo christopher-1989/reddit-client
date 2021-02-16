@@ -1,60 +1,23 @@
-import { render, screen } from '@testing-library/react';
 import App from './App';
-import { Header } from './features/Header/Header';
 import { shallow } from 'enzyme';
-import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
+import {findByTestAtrr } from '../src/utils/index';
 import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import { PropTypes } from 'prop-types';
 
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
 
-const mockStore = configureStore([]);
-describe('Redux mocked store', () => {
-  let store;
-  let component;
-  
-  beforeEach(() => {
-    store = mockStore({
-      menuClicked: false,
+describe('App component', () => {
+   
+  describe('App component renders', () => { 
+    let mockedStore = configureStore([])({});
+      const wrapper = mount(<App />, {
+        context: { store: mockedStore },
     });
+        it("Should render without error", () => {
+          const component = findByTestAtrr(wrapper, 'App');
+          expect(component.length).toBe(1);
 
-    component = renderer.create(
-      <Provider store={store}>
-        <App >
-          <Header />
-        </App>
-      </Provider>
-    );
+      });
+    });
   });
-  
-  describe('App component', () => { 
-  
-    test("render the title of app", () => {
-      expect(component).toBeDefined();
-    })
-  })
-  
-  describe('Header component', () => {
-    test('render a component called "header"', () => {
-      const app =  document.getElementById('App');
-      // const header = render(<Header />);
-      expect(app).toBeDefined();
-    })
-    test("title in the header component reads 'myReddit'", () => {
-      const wrapper = shallow(<Header />);
-      // const titleElement = screen.getByText(/myReddit/i);
-      // expect(titleElement).toBeInTheDocument();
-      expect(wrapper).find('myReddit');
-    })
-    test("header initialises to closed. Tested by checking whether menu icon is bars or times", () => {
-      // const wrapper = shallow(<Header />);
-      const icon = <i className="fas fa-bars" />;
-      expect(component).find(icon);
-    })
-  })
-})
-

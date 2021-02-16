@@ -5,6 +5,8 @@ import { Header } from './features/Header/Header';
 import { connect } from 'react-redux';
 import { fetchPosts } from './store/actions'; 
 import SharedButton from './features/Post/Button';
+import Card from './components/Card/Card';
+import { useSelector } from 'react-redux';
 
 function App(props) {
   
@@ -12,17 +14,33 @@ function App(props) {
     props.fetchPosts();
   }
 
-  const config = {
+  const configButton = {
     buttonText: 'Press for posts',
     emitEvent: fetch
   }
 
+  const posts = useSelector(state => state.getPosts)
+
   return (
-    <div className="App" id="App">
+    <div data-test="App" className="App" id="App">
       <Header />
       <BrowserMenu className="browserMenu" />
-      <SharedButton {...config} />
-      <CardContainer />
+      <SharedButton {...configButton} />
+      {posts.length > 0 &&
+        <div>
+          {posts.map((post, index) => {
+            const { title, body } = post;
+            const configCard = {
+              title,
+              post: body
+            };
+            return (
+              <Card key={index} {...configCard}/>
+            )
+          })}
+        </div>
+      }
+      
     </div>
   );
 }

@@ -20,7 +20,7 @@ describe('Card compontent', () => {
 
         let wrapper;
         beforeEach(() => {
-            const props ={
+            const props = {
                 title: 'example title',
                 post: 'some text'
             };
