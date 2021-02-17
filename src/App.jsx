@@ -4,7 +4,7 @@ import { BrowserMenu } from './features/Header/BrowserMenu';
 import { Header } from './features/Header/Header';
 import { connect } from 'react-redux';
 import { fetchPosts } from './store/actions'; 
-import SharedButton from './features/Post/Button';
+import Button from './features/Post/Button';
 import Card from './components/Card/Card';
 import { useSelector } from 'react-redux';
 
@@ -25,7 +25,7 @@ function App(props) {
     <div data-test="App" className="App" id="App">
       <Header />
       <BrowserMenu className="browserMenu" />
-      <SharedButton {...configButton} />
+      <Button {...configButton} />
       {posts.length > 0 &&
         <div>
           {posts.map((post, index) => {

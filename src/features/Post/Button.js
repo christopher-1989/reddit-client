@@ -1,6 +1,7 @@
 import { Component } from 'react';
+import { PropTypes } from 'prop-types';
 
-class SharedButton extends Component {
+class Button extends Component {
 
     submitEvent(){
         if(this.props.emitEvent){
@@ -19,4 +20,9 @@ class SharedButton extends Component {
     }
 }
 
-export default SharedButton;
+Button.propTypes = {
+    buttonText: PropTypes.string,
+    emitEvent: PropTypes.func
+}
+
+export default Button;
