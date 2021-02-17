@@ -19,10 +19,12 @@ function App(props) {
     emitEvent: fetch
   }
 
-  const posts = useSelector(state => state.getPosts)
+  // const posts = useSelector(state => state.getPosts)
+
+  const posts = props.store.getState().getPosts;
 
   return (
-    <div data-test="App" className="App" id="App">
+    <div data-test='appComponent' className="App" id="App">
       <Header />
       <BrowserMenu className="browserMenu" />
       {posts.length === 0 && 

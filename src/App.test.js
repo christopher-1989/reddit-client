@@ -1,23 +1,38 @@
-import App from './App';
+import App from './App.jsx';
 import { shallow } from 'enzyme';
-import {findByTestAtrr } from '../src/utils/index';
-import renderer from 'react-test-renderer';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import { PropTypes } from 'prop-types';
+import { findByTestAtrr, testStore } from '../src/utils/index';
 
+const setUp = (initialState={}) => {
+  const store = testStore(initialState);
+  const wrapper = shallow(<App store={store} />).childAt(0).dive();
+  console.log(wrapper.debug());
+  return wrapper;
+};
 
 describe('App component', () => {
-   
-  describe('App component renders', () => { 
-    let mockedStore = configureStore([])({});
-      const wrapper = mount(<App />, {
-        context: { store: mockedStore },
-    });
-        it("Should render without error", () => {
-          const component = findByTestAtrr(wrapper, 'App');
-          expect(component.length).toBe(1);
 
-      });
-    });
+  let wrapper;
+  beforeEach(() => {
+    const initialState = {
+      getPosts: [{
+        title: 'Example Title 1',
+        body: 'Some text'
+      },
+      {
+        title: 'Example Title 2',
+        body: 'Some text'
+      },
+      {
+        title: 'Example Title 3',
+        body: 'Some text'
+      }]
+    };
+    wrapper = setUp(initialState);
   });
+
+  it('Should render without errors', () => {
+    const component = findByTestAtrr(wrapper, 'appComponent');
+    expect(component.length).toBe(1);
+  });
+
+});
