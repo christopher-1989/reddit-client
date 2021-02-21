@@ -1,11 +1,9 @@
 import './App.css';
-import { CardContainer } from "./components/Card/CardContainer";
-import { BrowserMenu } from './features/Header/BrowserMenu';
+import { CardContainer } from "./components/CardContainer";
 import { Header } from './features/Header/Header';
 import { connect } from 'react-redux';
 import { fetchPosts } from './store/actions'; 
 import SharedButton from './features/Post/Button';
-import Card from './components/Card/Card';
 import { useSelector } from 'react-redux';
 
 function App(props) {
@@ -24,24 +22,10 @@ function App(props) {
   return (
     <div data-test='appComponent' className="App" id="App">
       <Header />
-      <BrowserMenu className="browserMenu" />
       {posts.length === 0 && 
         <SharedButton {...configButton} />
       }  
-      {posts.length > 0 &&
-        <div>
-          {posts.map((post, index) => {
-            const { title, body } = post;
-            const configCard = {
-              title,
-              post: body
-            };
-            return (
-              <Card key={index} {...configCard}/>
-            )
-          })}
-        </div>
-      }
+      <CardContainer />
       
     </div>
   );
