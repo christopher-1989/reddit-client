@@ -19,9 +19,7 @@ function App(props) {
     emitEvent: fetch
   }
 
-  // const posts = useSelector(state => state.getPosts)
-
-  const posts = props.store.getState().getPosts;
+  const posts = useSelector(state => state.getPosts)
 
   return (
     <div data-test='appComponent' className="App" id="App">
