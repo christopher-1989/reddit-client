@@ -1,5 +1,5 @@
 import './App.css';
-import { CardContainer } from "./components/CardContainer";
+import CardContainer from "./components/CardContainer";
 import { Header } from './features/Header/Header';
 import { connect } from 'react-redux';
 import { fetchPosts } from './store/actions'; 

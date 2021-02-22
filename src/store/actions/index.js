@@ -13,3 +13,19 @@ export const fetchPosts = () => async (dispatch) => {
         console.log(err);
     });
 }
+
+const REDDIT_ENDPOINT = "https://www.reddit.com";
+
+export const fetchRedditPosts = () => async (dispatch) => {
+    await axios.get(`${REDDIT_ENDPOINT}/subreddits/default.json`)
+    .then(res => {
+        dispatch({
+            type: types.GET_REDDIT,
+            payload: res.data
+        })
+        console.log(res.data)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}

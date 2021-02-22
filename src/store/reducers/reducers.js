@@ -17,3 +17,12 @@ export const getPostsReducer = (state = [], action) => {
           return state;
   }
 };
+
+export const getRedditPostsReducer = (state = [], action) => {
+  switch(action.type){
+      case types.GET_REDDIT:
+          return action.payload;
+      default:
+          return state;
+  }
+};

@@ -10,7 +10,7 @@ const SubredditItem = (props) => {
     }
     return (
         <div data-test="subredditComponent">
-            <h2 data-test="subredditTitle">{subredditTitle}</h2>
+            <h4 data-test="subredditTitle" className="subreddit-title">{subredditTitle}</h4>
         </div>
     )
 }

@@ -1,28 +1,38 @@
 import Card  from "./Card/Card";
 import "./CardContainer.css";
-import { useSelector } from 'react-redux';
+import { useSelector, connect } from 'react-redux';
 import SubredditItem from "./Subreddits/SubredditItem";
+import { fetchRedditPosts } from '../store/actions'; 
 
-export const CardContainer = () => {
 
+function CardContainer (props) {
     const posts = useSelector(state => state.getPosts)
+    const testSubs = ["Subreddit #1", "Subreddit #2", "Subreddit #3"];
+
+    function fetch() {
+        props.fetchRedditPosts();
+    }
+    const subreddits = useSelector(state => state.getRedditPosts)
+
+
+    if(subreddits === []) {
+        fetch();
+    }
+
+    console.log(subreddits);
 
     return (
         <div data-test="cardContainerComponent" className="card-container-component">
             <div data-test="subredditConatiner" className="subreddit-container" >
-                <h4>Empty container</h4>
-                <ul>
-                    <li className="subreddit-row">
-                        Subreddit #1
-                    </li>
-                    <li className="subreddit-row">
-                        Subreddit #2
-                    </li>
-                    <li className="subreddit-row">
-                        Subreddit #3
-                    </li>
-                </ul>
-                <SubredditItem />
+                {testSubs.map((sub, index) => {
+                    const configSubreddit = {
+                        subredditTitle: sub
+                    }
+                    return (
+                    <SubredditItem key={index} {...configSubreddit} />
+                    )
+                })
+            }
             </div>
             {posts.length > 0 &&
                 <div data-test="cardsContainer" className="cards-container">
@@ -41,3 +51,11 @@ export const CardContainer = () => {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+      redditPosts: state.redditPosts
+    }
+  }
+
+export default connect(mapStateToProps, {fetchRedditPosts})(CardContainer);

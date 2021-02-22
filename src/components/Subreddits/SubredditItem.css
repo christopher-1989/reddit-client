@@ -1,4 +1,4 @@
-div {
-    font-family: cursive;
-    text-align: left;
+.subreddit-title {
+    width: 200px;
+    overflow: auto;
 }

@@ -3,7 +3,7 @@ import { Header } from './features/Header/Header';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
-import { CardContainer } from './components/CardContainer.jsx';
+import CardContainer from './components/CardContainer.jsx';
 
 const mockStore = configureStore([]);
 
@@ -95,7 +95,8 @@ describe('CardContainer component', () => {
       {
         title: 'Example Title 3',
         body: 'Some text'
-      }]
+      }],
+      getRedditPosts: []
     });
     component = renderer.create(
       <Provider store={store}>
