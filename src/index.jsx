@@ -5,9 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { store } from './store/index';
-import { fetchRedditPosts } from './store/actions';
+import { fetchSubredditTitles } from './store/actions';
 
-store.dispatch(fetchRedditPosts());
+store.dispatch(fetchSubredditTitles());
 
 ReactDOM.render(
   <React.StrictMode>

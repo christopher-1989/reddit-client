@@ -18,9 +18,9 @@ export const getPostsReducer = (state = [], action) => {
   }
 };
 
-export const getRedditPostsReducer = (state = [], action) => {
+export const getSubredditTitlesReducer = (state = [], action) => {
   switch(action.type){
-      case types.GET_REDDIT:
+      case types.GET_SUBREDDIT_TITLES:
           return action.payload;
       default:
           return state;

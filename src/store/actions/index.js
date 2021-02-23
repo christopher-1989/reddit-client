@@ -16,11 +16,11 @@ export const fetchPosts = () => async (dispatch) => {
 
 const REDDIT_ENDPOINT = "https://www.reddit.com";
 
-export const fetchRedditPosts = () => async (dispatch) => {
+export const fetchSubredditTitles = () => async (dispatch) => {
     await axios.get(`${REDDIT_ENDPOINT}/subreddits.json`)
     .then(res => {
         dispatch({
-            type: types.GET_REDDIT,
+            type: types.GET_SUBREDDIT_TITLES,
             payload: res.data.data.children
         })
     })
