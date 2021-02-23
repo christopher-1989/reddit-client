@@ -9,22 +9,25 @@ function CardContainer (props) {
     const posts = useSelector(state => state.getPosts)
     const testSubs = ["Subreddit #1", "Subreddit #2", "Subreddit #3"];
 
-    function fetch() {
-        props.fetchRedditPosts();
-    }
     const subreddits = useSelector(state => state.getRedditPosts)
 
+    let subredditTitles;
+    if(subreddits.length > 0) {
+        subredditTitles = subreddits.map((sub, index) => {
 
-    if(subreddits === []) {
-        fetch();
-    }
+            return sub.data.display_name_prefixed;
+        });
+    };  
 
-    console.log(subreddits);
+  
+    console.log(subredditTitles);
+
 
     return (
         <div data-test="cardContainerComponent" className="card-container-component">
             <div data-test="subredditConatiner" className="subreddit-container" >
                 {testSubs.map((sub, index) => {
+
                     const configSubreddit = {
                         subredditTitle: sub
                     }
