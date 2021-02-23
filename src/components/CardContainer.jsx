@@ -10,7 +10,7 @@ function CardContainer (props) {
 
     const subreddits = useSelector(state => state.getSubredditTitles)
  
-    console.log(subreddits);
+    console.log(posts);
 
 
     return (
@@ -30,10 +30,12 @@ function CardContainer (props) {
             {posts.length > 0 &&
                 <div data-test="cardsContainer" className="cards-container">
                 {posts.map((post, index) => {
-                    const { title, body } = post;
+                    const { title, author, score, selftext } = post.data;
                     const configCard = {
                     title,
-                    post: body
+                    author,
+                    score,
+                    selftext
                     };
                     return (
                     <Card key={index} {...configCard}/>
