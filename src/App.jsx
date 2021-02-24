@@ -3,6 +3,7 @@ import CardContainer from "./components/CardContainer";
 import { Header } from './features/Header/Header';
 import { connect } from 'react-redux';
 import { fetchPosts } from './store/actions'; 
+import { store } from './store';
 
 
 function App(props) {
@@ -21,9 +22,13 @@ function App(props) {
   //   <SharedButton {...configButton} />
   // }  
 
+  function fetch () {
+    store.dispatch(fetchPosts('/r/ASX_bets.json'))
+  }
+
 
   return (
-    <div data-test='appComponent' className="App" id="App">
+    <div data-test='appComponent' className="App" id="App" onClick={fetch}>
       <Header />
       
       <CardContainer />

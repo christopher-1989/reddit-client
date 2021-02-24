@@ -9,16 +9,14 @@ function CardContainer (props) {
     const posts = useSelector(state => state.getPosts)
 
     const subreddits = useSelector(state => state.getSubredditTitles)
- 
-    console.log(posts);
-
 
     return (
         <div data-test="cardContainerComponent" className="card-container-component">
             <div data-test="subredditConatiner" className="subreddit-container" >
                 {subreddits.map((sub, index) => {
                         const configSubreddit = {
-                            subredditTitle: sub.data.display_name_prefixed
+                            subredditTitle: sub.data.display_name_prefixed,
+                            url: sub.data.url
                         };
 
                         return (
@@ -30,12 +28,13 @@ function CardContainer (props) {
             {posts.length > 0 &&
                 <div data-test="cardsContainer" className="cards-container">
                 {posts.map((post, index) => {
-                    const { title, author, score, selftext } = post.data;
+                    const { title, author, score, selftext, url } = post.data;
                     const configCard = {
                     title,
                     author,
                     score,
-                    selftext
+                    selftext,
+                    url
                     };
                     return (
                     <Card key={index} {...configCard}/>

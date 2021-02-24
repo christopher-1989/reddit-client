@@ -16,8 +16,8 @@ import axios from 'axios';
 
 const REDDIT_ENDPOINT = "https://www.reddit.com";
 
-export const fetchPosts = () => async (dispatch) => {
-    await axios.get(`${REDDIT_ENDPOINT}/r/Home.json`)
+export const fetchPosts = (endpoint) => async (dispatch) => {
+    await axios.get(`${REDDIT_ENDPOINT}${endpoint}`)
     .then(res => {
         dispatch({
             type: types.GET_POSTS,
@@ -28,9 +28,6 @@ export const fetchPosts = () => async (dispatch) => {
         console.log(err);
     });
 }
-
-
-
 
 export const fetchSubredditTitles = () => async (dispatch) => {
     await axios.get(`${REDDIT_ENDPOINT}/subreddits.json`)

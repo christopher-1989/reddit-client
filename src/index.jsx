@@ -8,7 +8,7 @@ import { store } from './store/index';
 import { fetchPosts, fetchSubredditTitles } from './store/actions';
 
 store.dispatch(fetchSubredditTitles());
-store.dispatch(fetchPosts())
+store.dispatch(fetchPosts('/r/ASX_bets.json'))
 
 ReactDOM.render(
   <React.StrictMode>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Card = (props) => {
 
-    const { title, author, score, selftext } = props;
+    const { title, author, score, selftext, url } = props;
 
     if(!title) {
         return null;
@@ -12,8 +12,11 @@ const Card = (props) => {
     return (
         <div data-test="cardComponent">
             <h3 data-test="componentTitle">{title}</h3>
+            {selftext && 
+            selftext}
+            {url && 
+            <img alt={title} src={url} />}
             <p data-test="componentPost">{author} Score: {score}</p>
-            {selftext}
         </div>
     )
 }
