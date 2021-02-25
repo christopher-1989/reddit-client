@@ -16,8 +16,8 @@ const SubredditItem = (props) => {
     }
     
     return (
-        <div data-test="subredditComponent" onClick={fetch} >
-            <h4 data-test="subredditTitle" className="subreddit-title">{subredditTitle}</h4>
+        <div data-test="subredditComponent" className="subreddit-title-container"onClick={fetch} >
+            <h4 data-test="subredditTitle" className="subreddit-title" >{subredditTitle}</h4>
         </div>
     )
 }

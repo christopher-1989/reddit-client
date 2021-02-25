@@ -1,0 +1,22 @@
+.card-component {
+    display: flexbox;
+    width: 50vw;
+    flex-shrink: inherit;
+    /* overflow: hidden; */
+}
+
+.image {
+    max-width: 100%;
+    max-height: 100%;
+    flex-shrink: inherit;
+}
+
+.text-body {
+    line-height: 3rem;
+    font-size: 1.25rem;
+}
+
+.card-title {
+    font-size: 2.5rem;
+    color: #201F2E
+}

@@ -9,8 +9,9 @@ body {
 
 #root {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: var(--spacing-2);
+  max-width: 100%;
 }
 
 main {

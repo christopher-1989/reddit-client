@@ -10,12 +10,12 @@ const Card = (props) => {
     }
 
     return (
-        <div data-test="cardComponent">
-            <h3 data-test="componentTitle">{title}</h3>
+        <div data-test="cardComponent" className="card-component">
+            <h3 data-test="componentTitle" className="card-title">{title}</h3>
             {selftext && 
-            selftext}
+            <p className="text-body">{selftext}</p>}
             {url && 
-            <img alt={title} src={url} />}
+            <img alt={title} src={url} className="image" />}
             <p data-test="componentPost">{author} Score: {score}</p>
         </div>
     )

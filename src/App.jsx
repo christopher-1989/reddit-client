@@ -22,13 +22,11 @@ function App(props) {
   //   <SharedButton {...configButton} />
   // }  
 
-  function fetch () {
-    store.dispatch(fetchPosts('/r/ASX_bets.json'))
-  }
+  
 
 
   return (
-    <div data-test='appComponent' className="App" id="App" onClick={fetch}>
+    <div data-test='appComponent' className="App" id="App" >
       <Header />
       
       <CardContainer />

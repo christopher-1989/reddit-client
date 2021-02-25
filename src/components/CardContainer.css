@@ -9,6 +9,8 @@
     display: inline-flex;
     flex-grow: 3;
     flex-direction: column;
+    background-color: #201F2E;
+    color: #fffe;
 }
 
 .subreddit-row {
@@ -25,4 +27,25 @@
     display: inline-flex;
     flex-grow: 3;
     flex-direction: column;
+    color: #232323;
+    width: 100%;
+    align-items: center;
+    border-color: #201F2E;
 }
+
+.subreddit-title {
+    margin: 0px;
+    padding: 15px 0px 15px 20px;
+}
+
+.subreddit-title:hover {
+    color: #201f2e;
+    background-color: #fffe;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .subreddit-container {
+        display: none;
+    }
+}  
