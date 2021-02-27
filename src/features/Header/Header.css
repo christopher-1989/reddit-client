@@ -7,6 +7,11 @@
     margin: 0px;
 }
 
+.title:active {
+    box-shadow: 0 5px #fff;
+    transform: translateY(2px);
+}
+
 .browser {
     display: none;
 }

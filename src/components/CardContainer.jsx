@@ -28,13 +28,14 @@ function CardContainer (props) {
             {posts.length > 0 &&
                 <div data-test="cardsContainer" className="cards-container">
                 {posts.map((post, index) => {
-                    const { title, author, score, selftext, url } = post.data;
+                    const { title, author, score, selftext, url, media } = post.data;
                     const configCard = {
                     title,
                     author,
                     score,
                     selftext,
-                    url
+                    url,
+                    media
                     };
                     return (
                     <Card key={index} {...configCard}/>

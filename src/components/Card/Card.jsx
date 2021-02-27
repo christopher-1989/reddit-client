@@ -3,10 +3,25 @@ import PropTypes from 'prop-types';
 
 const Card = (props) => {
 
-    const { title, author, score, selftext, url } = props;
+    const { title, author, score, selftext, url, media } = props;
 
     if(!title) {
         return null;
+    }
+
+    let embed = null;
+
+    switch (url[8]) {
+        case 'i':
+            embed = <img alt={title} src={url} className="image" />;
+            break;
+        case 'v':
+            // eslint-disable-next-line jsx-a11y/iframe-has-title
+            embed = <iframe className="video" width="560" height="315" src={media.reddit_video.fallback_url} frameborder="0" autoplay allowfullscreen></iframe>;
+            break;
+        default:
+            embed = <p>{title}</p>;
+
     }
 
     return (
@@ -15,8 +30,8 @@ const Card = (props) => {
             {selftext && 
             <p className="text-body">{selftext}</p>}
             {url && 
-            <img alt={title} src={url} className="image" />}
-            <p data-test="componentPost">{author} Score: {score}</p>
+            embed}
+            <p data-test="componentPost">Author: {author}. Score: {score}.</p>
         </div>
     )
 }
