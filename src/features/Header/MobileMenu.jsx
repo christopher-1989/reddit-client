@@ -1,24 +1,32 @@
 import "./Header.css";
+import { useSelector, useDispatch } from 'react-redux';
+import SubredditItem from '../../components/Subreddits/SubredditItem';
+import { menuClick } from '../../store/actions/actions';
 
 export const MobileMenu = (props) => {
 
+    const subreddits = useSelector(state => state.getSubredditTitles)
+    const clicked = useSelector(state => state.menuClicked)
+    const dispatch = useDispatch();
+
     return (
         <ul className={props.click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
-                <a href="/" className="nav-links" onClick={props.closeMobileMenu}>
-                    SubR#1
-                </a>
-            </li>
-            <li className="nav-item">
-                <a href="/" className="nav-links" onClick={props.closeMobileMenu}>
-                    SubR#2
-                </a>
-            </li>
-            <li className="nav-item">
-                <a href="/blog" className="nav-links" onClick={props.closeMobileMenu}>
-                    SubR#3
-                </a>
-            </li>
+            {subreddits.map((sub, index) => {
+                        const configSubreddit = {
+                            subredditTitle: sub.data.display_name_prefixed,
+                            url: sub.data.url
+                        };
+
+                        return (
+                            <li className="nav-item" onClick={() => dispatch(menuClick(clicked))}>
+                                <div className="nav-links" >
+                                    <SubredditItem key={index}   {...configSubreddit} />
+                                </div>
+                            </li>
+                            
+                        );
+                    })
+                }
         </ul>
     )
 }

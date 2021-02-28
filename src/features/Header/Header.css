@@ -1,3 +1,7 @@
+.header-container {
+    width: 100vw;
+}
+
 .title {
     box-sizing: border-box;
     display: block;
@@ -24,24 +28,22 @@
 .nav-menu {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     position: absolute;
     list-style: none;
     left: -110%;
     opacity: 1;
-    transition: all 0.5s ease;
+    transition: all 0.8s ease;
     top: 65px;
 }
 
 .nav-menu.active {
-    transition: all 0.5s ease;
-    background: #232323;
+    transition: all 0.8s ease;
+    background: #201F2E;
     padding-left: 0;
     left: 0;
     opacity: 1;
     z-index: 1;
     top: 65px;
-
 }
 
 .nav-links {
@@ -54,11 +56,12 @@
     align-items: center;
     height: 100%;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .nav-links:hover {
     background-color: #fffe;
-    color: #232323;
+    color: #201F2E;
     border-radius: 0;
 }
 
@@ -72,11 +75,13 @@ transform: translateY(60%);
 .menu-icon {
 display: block;
 position: absolute;
-top: 0;
+top: 0px;
 right: 0;
 font-size: 1.8rem;
 cursor: pointer;
 color: #fffe;
+margin-right: 30px;
+margin-top: 20px;
 }
 
 .fa-times {
@@ -96,12 +101,23 @@ font-size: 2rem;
     transition: all 0.3s ease-out;
 }
 
-.nav-links-mobile:hover {
-background: #fffe;
-color: #232323;
-transition: 250ms;
+
+.subreddit-title-container {
+    width: 100%;
 }
 
+.nav-subreddit-title {
+    text-align: center;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 97vw;
+}
+
+.nav-subreddit-title:active {
+    box-shadow: 0 5px #fffe;
+    transform: translateY(2px);
+}
 
 @media screen and (min-width: 600px) {  
     .title-container {

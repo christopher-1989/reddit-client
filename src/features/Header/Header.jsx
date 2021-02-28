@@ -12,7 +12,9 @@ export const Header = () => {
     const dispatch = useDispatch();
 
     function fetch () {
-        store.dispatch(fetchPosts('/r/ASX_bets.json'))
+        if (!clicked) {
+            store.dispatch(fetchPosts('/r/ASX_bets.json'))
+        }
     }
 
     return (
