@@ -9,7 +9,7 @@ const Card = (props) => {
         return null;
     }
 
-    let embed = null;
+    let embed;
 
     switch (url[8]) {
         case 'i':
@@ -20,7 +20,7 @@ const Card = (props) => {
             embed = <iframe className="video" width="560" height="315" src={media.reddit_video.fallback_url} frameborder="0" autoplay allowfullscreen></iframe>;
             break;
         default:
-            embed = <p>{title}</p>;
+            embed = null;
 
     }
 
