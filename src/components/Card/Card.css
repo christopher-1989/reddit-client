@@ -1,6 +1,6 @@
 .card-component {
     display: flexbox;
-    width: 50vw;
+    width: 70vw;
     flex-shrink: inherit;
     align-content: center;
 }
@@ -27,6 +27,10 @@
 
 @media screen and (min-width: 600px) {  
 
+    .card-component {
+        width: 50vw;
+    }
+    
     .card-title {
         font-size: 2.5rem;
     }
