@@ -2,12 +2,12 @@ import './SubredditItem.css';
 import PropTypes from 'prop-types';
 import { store } from '../../store/index';
 import { fetchPosts } from '../../store/actions';
+import { getPageTitle } from '../../store/actions/actions';
 import { useSelector } from 'react-redux';
 
 const SubredditItem = (props) => {
 
     const clicked = useSelector(state => state.menuClicked);
-
     const { subredditTitle, url } = props;
 
     if (!subredditTitle) {
@@ -15,6 +15,7 @@ const SubredditItem = (props) => {
     }
 
     function fetch (endpoint) {
+        store.dispatch(getPageTitle(url))
         store.dispatch(fetchPosts(`${url}.json`))
     }
     

@@ -3,12 +3,13 @@ import CardContainer from "./components/CardContainer";
 import { Header } from './features/Header/Header';
 import { connect } from 'react-redux';
 import { fetchPosts } from './store/actions'; 
-import { store } from './store';
+// import { store } from './store';
 
 
 function App(props) {
   
   // **Usage for Sharedbutton has been disabled 
+  // ** original function was to fetch posts upon button click
   //function fetch() {
   //   props.fetchPosts();
   // }

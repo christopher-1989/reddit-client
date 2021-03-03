@@ -1,26 +1,29 @@
 import "./Header.css";
 import { MobileMenu } from "./MobileMenu";
 import { useSelector, useDispatch } from 'react-redux';
-import { menuClick } from '../../store/actions/actions';
+import { getPageTitle, menuClick } from '../../store/actions/actions';
 import { store } from '../../store/index';
 import { fetchPosts } from "../../store/actions";
 
 export const Header = () => {
     // const width = window.screen.width;
-
-    const clicked = useSelector(state => state.menuClicked)
+    const homePage = '/r/ASX_bets/';
+    const clicked = useSelector(state => state.menuClicked);
     const dispatch = useDispatch();
+
+    const pageTitle = useSelector(state => state.getPageTitle)
 
     function fetch () {
         if (!clicked) {
-            store.dispatch(fetchPosts('/r/ASX_bets.json'))
+            store.dispatch(getPageTitle(homePage))
+            store.dispatch(fetchPosts(`${homePage}.json`));
         }
     }
 
     return (
-        <div data-test="headerComponent" className="header-container" onClick={fetch}>
+        <div data-test="headerComponent" className="header-container">
             <div className="title-container" >
-                <h1 className="title">myReddit<span className="browser" >    <i className='fab fa-reddit-alien' /></span></h1>
+                <h1 className="title" onClick={fetch}>{pageTitle}<span className="browser" > Viewer lite <i className='fab fa-reddit-alien' /></span></h1>
                 <div className="menu-icon" onClick={() => dispatch(menuClick(clicked))}>
                     <i className={clicked ? 'fas fa-times' : "fas fa-bars"} />
                 </div>

@@ -5,8 +5,8 @@ import { menuClick } from '../../store/actions/actions';
 
 export const MobileMenu = (props) => {
 
-    const subreddits = useSelector(state => state.getSubredditTitles)
-    const clicked = useSelector(state => state.menuClicked)
+    const subreddits = useSelector(state => state.getSubredditTitles);
+    const clicked = useSelector(state => state.menuClicked);
     const dispatch = useDispatch();
 
     return (

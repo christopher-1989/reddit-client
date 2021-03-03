@@ -4,3 +4,10 @@ export const menuClick = menuClicked => {
       payload: !menuClicked
     };
   };
+
+export const getPageTitle = pageTitle => {
+  return {
+    type: "GET_PAGE_TITLE",
+    payload: pageTitle
+  }
+}

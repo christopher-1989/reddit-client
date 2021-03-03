@@ -8,6 +8,15 @@ export const menuClickedReducer = (state = false, action) => {
       return state;
   }
 };
+
+export const getPageTitleReducer = (state = "/r/ASX_bets/", action) => {
+  switch (action.type) {
+    case types.GET_PAGE_TITLE:
+      return action.payload;
+      default:
+        return state;
+  }
+}
   
 export const getPostsReducer = (state = [], action) => {
   switch(action.type){
