@@ -13,11 +13,11 @@ const Card = (props) => {
 
     switch (url[8]) {
         case 'i':
-            embed = <img alt={title} src={url} className="image" />;
+            embed = <img alt={title} src={url} className="image" loading="lazy" />;
             break;
         case 'v':
             // eslint-disable-next-line jsx-a11y/iframe-has-title
-            embed = <iframe className="video" width="560" height="315" src={media.reddit_video.fallback_url} frameborder="0" autoplay allowfullscreen></iframe>;
+            embed = <iframe className="video" loading="lazy" width="560" height="315" src={media.reddit_video.fallback_url} frameborder="0" autoplay allowfullscreen></iframe>;
             break;
         default:
             embed = null;
