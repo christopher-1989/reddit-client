@@ -17,7 +17,11 @@ const Card = (props) => {
             break;
         case 'v':
             // eslint-disable-next-line jsx-a11y/iframe-has-title
-            embed = <iframe className="video" loading="lazy" width="560" height="315" src={media.reddit_video.fallback_url} frameborder="0" autoplay allowfullscreen></iframe>;
+            if(media === null) {
+                embed = null;
+                break;
+            }
+            embed = <iframe className="video" loading="lazy" width="560" height="315" src={media.reddit_video.fallback_url} frameBorder="0" autoplay allowfullscreen></iframe>;
             break;
         default:
             embed = null;

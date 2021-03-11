@@ -1,4 +1,5 @@
 .subreddit-title {
     width: 200px;
     overflow: auto;
+    padding-left: 10px;
 }

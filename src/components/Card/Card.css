@@ -14,7 +14,7 @@
 }
 
 .text-body {
-    line-height: 2.5rem;
+    line-height: 1.5rem;
     font-size: 1.25rem;
     overflow: hidden;
     width: 100%;
@@ -36,6 +36,6 @@
     }
 
     .text-body {
-        line-height: 3rem;
+        line-height: 2.5rem;
     }
 }
